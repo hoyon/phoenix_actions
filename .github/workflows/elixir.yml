@@ -31,3 +31,9 @@ jobs:
 
       - name: Run Tests
         run: mix test
+
+      - uses: actions/npm@1.0.0
+        args: install
+
+      - uses: actions/npm@1.0.0
+        args: run deploy
