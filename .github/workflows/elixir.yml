@@ -17,6 +17,8 @@ jobs:
       uses: Harmon758/postgresql-action@v1.0.0
       with: 
         postgresql version: '11'
+        postgresql user: 'postgres'
+        postgresql password: 'postgres'
 
     - name: Install Dependencies
       run: |
