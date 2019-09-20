@@ -1,5 +1,3 @@
-name: Elixir CI
-
 on: push
 
 jobs:
