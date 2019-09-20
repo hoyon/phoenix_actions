@@ -8,8 +8,10 @@ jobs:
 
     steps:
       - uses: actions/checkout@v1
-      - uses: actions/npm@1.0.0
-        args: install
-
-      - uses: actions/npm@1.0.0
-        args: run deploy
+      - uses: actions/setup-node@v1
+      
+      - name: webpack deploy
+        run: |
+          cd assets
+          npm install
+          npm run deploy
