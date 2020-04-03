@@ -9,4 +9,5 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run:
+          ls -lah
           ./.github/workflows/add_comment.sh
