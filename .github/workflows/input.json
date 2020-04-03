@@ -16,6 +16,13 @@
         "end_line": 2,
         "annotation_level": "warning",
         "raw_details": "some juicy details"
+      },
+      {
+        "path": "README.md",
+        "start_line": 1,
+        "end_line": 10,
+        "annotation_level": "notice",
+        "message": "what is this"
       }
     ]
   }
