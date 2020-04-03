@@ -8,6 +8,6 @@ jobs:
       - name: comment PR
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run:
+        run: |
           ls -lah
           ./.github/workflows/add_comment.sh
