@@ -5,6 +5,9 @@ jobs:
     name: sample comment
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+
       - name: comment PR
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
