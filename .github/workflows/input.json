@@ -1,0 +1,22 @@
+{
+  "name": "check run",
+  "head_sha": "__SHA__",
+  "status": "completed",
+  "conclusion": "failure",
+  "output": {
+    "title": "my test",
+    "summary": "something went wrong",
+    "text": "hehehe",
+    "annotations": [
+      {
+        "path": ".github/workflows/comment.yml",
+        "title": "tester",
+        "message": "Your code sucks",
+        "start_line": 1,
+        "end_line": 2,
+        "annotation_level": "warning",
+        "raw_details": "some juicy details"
+      }
+    ]
+  }
+}
