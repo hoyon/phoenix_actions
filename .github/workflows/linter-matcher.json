@@ -1,0 +1,15 @@
+{
+    "problemMatcher": [
+        {
+            "owner": "linter-matcher",
+            "pattern": [
+                {
+                    "regexp": "^(.+):(.+)\\s(.*)$",
+                    "file": 1,
+                    "line": 2,
+                    "message": 3
+                }
+            ]
+        }
+    ]
+}

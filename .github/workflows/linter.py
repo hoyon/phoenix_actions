@@ -15,7 +15,7 @@ class Annotation:
         self.annotation_level = level
 
     def __str__(self):
-        return str(self.__class__) + ": " + str(self.__dict__)
+        return self.path + ":" + str(self.start_line) + " " + self.message
 
 
 class MyEncoder(json.JSONEncoder):
@@ -58,7 +58,7 @@ def grep(filepath, regex):
             if reg_obj.match(line):
                 res.append(
                     Annotation(filepath, "IO.inspect",
-                               "no debugging allowed", index, "failure"))
+                               "IO.inspect", index, "failure"))
     return res
 
 
@@ -70,7 +70,9 @@ def main():
         matches = grep(file, r'.*IO\.inspect.*')
         annotations += matches
 
-    print(make_json("failure", annotations))
+    # print(make_json("failure", annotations))
+    for annotation in annotations:
+        print(annotation)
 
 
 if __name__ == "__main__":
