@@ -4,10 +4,11 @@
             "owner": "linter-matcher",
             "pattern": [
                 {
-                    "regexp": "^(.+):(.+)\\s(.*)$",
+                    "regexp": "^(.+):(.+)\\s(\\w)\\s(.*)$",
                     "file": 1,
                     "line": 2,
-                    "message": 3
+                    "severity": 3,
+                    "message": 4
                 }
             ]
         }

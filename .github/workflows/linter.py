@@ -7,16 +7,14 @@ import sys
 
 
 class Annotation:
-    def __init__(self, path, title, message, line, level):
+    def __init__(self, path, line, message, severity):
         self.path = path
-        self.title = title
+        self.line = line
         self.message = message
-        self.start_line = line
-        self.end_line = line
-        self.annotation_level = level
+        self.severity = severity
 
     def __str__(self):
-        return self.path + ":" + str(self.start_line) + " " + self.message
+        return self.path + ":" + str(self.line) + " " + self.severity + " " + self.message
 
 
 class MyEncoder(json.JSONEncoder):
@@ -57,9 +55,7 @@ def grep(filepath, regex):
     with open(filepath) as f:
         for index, line in enumerate(f):
             if reg_obj.match(line):
-                res.append(
-                    Annotation(filepath, "IO.inspect",
-                               "IO.inspect", index, "failure"))
+                res.append(Annotation(filepath, index, "IO.inspect", "error"))
     return res
 
 
@@ -71,7 +67,6 @@ def main():
         matches = grep(file, r'.*IO\.inspect.*')
         annotations += matches
 
-    # print(make_json("failure", annotations))
     for annotation in annotations:
         print(annotation)
 
