@@ -61,7 +61,7 @@ def grep(filepath, regex):
     with open(filepath) as f:
         for index, line in enumerate(f):
             if regObj.match(line):
-                res.append(Annotation(filepath, "IO.inspect", "no debugging allowed", index, "error"))
+                res.append(Annotation(filepath, "IO.inspect", "no debugging allowed", index, "failure"))
     return res
 
 files = findfiles('./lib', r'.*\.ex$')
