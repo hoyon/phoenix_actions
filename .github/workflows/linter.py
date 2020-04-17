@@ -17,9 +17,6 @@ class Annotation:
     def __str__(self):
         return str(self.__class__) + ": " + str(self.__dict__)
 
-    def toJSON(self):
-        return json.dumps(self, default=lambda o: o.__dict__,
-                          sort_keys=True, indent=4)
 
 class MyEncoder(json.JSONEncoder):
     def default(self, o):
@@ -43,34 +40,38 @@ def make_json(conclusion, annotations):
     return json.dumps(output, cls=MyEncoder)
 
 
-
-
 def findfiles(path, regex):
-    regObj = re.compile(regex)
+    reg_obj = re.compile(regex)
     res = []
-    for root, dirs, fnames in os.walk(path):
+    for root, _dirs, fnames in os.walk(path):
         for fname in fnames:
-            if regObj.match(fname):
+            if reg_obj.match(fname):
                 res.append(os.path.join(root, fname))
     return res
 
 
 def grep(filepath, regex):
-    regObj = re.compile(regex)
+    reg_obj = re.compile(regex)
     res = []
     with open(filepath) as f:
         for index, line in enumerate(f):
-            if regObj.match(line):
-                res.append(Annotation(filepath, "IO.inspect", "no debugging allowed", index, "failure"))
+            if reg_obj.match(line):
+                res.append(
+                    Annotation(filepath, "IO.inspect",
+                               "no debugging allowed", index, "failure"))
     return res
 
-files = findfiles('./lib', r'.*\.ex$')
 
-annotations = []
+def main():
+    files = findfiles('lib', r'.*\.ex$')
+    annotations = []
 
-for f in files:
-    matches = grep(f, r'.*IO\.inspect.*')
-    annotations += matches
+    for file in files:
+        matches = grep(file, r'.*IO\.inspect.*')
+        annotations += matches
+
+    print(make_json("failure", annotations))
 
 
-print(make_json("failure", annotations))
+if __name__ == "__main__":
+    main()
