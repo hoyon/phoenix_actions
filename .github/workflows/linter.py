@@ -32,7 +32,7 @@ def grep(filepath, regex):
     with open(filepath) as f:
         for index, line in enumerate(f):
             if reg_obj.match(line):
-                res.append(Annotation(filepath, index, "IO.inspect", "error"))
+                res.append(Annotation(filepath, index + 1, "IO.inspect", "error"))
     return res
 
 
