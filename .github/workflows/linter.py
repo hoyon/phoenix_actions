@@ -3,6 +3,7 @@
 import json
 import os
 import re
+import sys
 
 
 class Annotation:
@@ -73,6 +74,9 @@ def main():
     # print(make_json("failure", annotations))
     for annotation in annotations:
         print(annotation)
+
+    if annotations != []:
+        sys.exit(1)
 
 
 if __name__ == "__main__":
