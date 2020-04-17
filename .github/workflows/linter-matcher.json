@@ -4,7 +4,7 @@
             "owner": "linter-matcher",
             "pattern": [
                 {
-                    "regexp": "^(.+):(.+)\\s(\\w)\\s(.*)$",
+                    "regexp": "^(.+):(.+)\\s(\\w*)\\s(.*)$",
                     "file": 1,
                     "line": 2,
                     "severity": 3,
