@@ -2,7 +2,7 @@ name: linter
 on: pull_request
 jobs:
   example:
-    name: sample comment
+    name: linter
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
