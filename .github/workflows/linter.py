@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 
-import json
 import os
 import re
 import sys
@@ -15,28 +14,6 @@ class Annotation:
 
     def __str__(self):
         return self.path + ":" + str(self.line) + " " + self.severity + " " + self.message
-
-
-class MyEncoder(json.JSONEncoder):
-    def default(self, o):
-        return o.__dict__
-
-
-def make_json(conclusion, annotations):
-    output = {
-        "name": "linter",
-        "head_sha": os.environ.get('COMMIT_SHA', 'your git sha'),
-        "status": "completed",
-        "conclusion": conclusion,
-        "output": {
-            "title": "my test",
-            "summary": "something went wrong",
-            "text": "you suck",
-            "annotations": annotations
-        }
-    }
-
-    return json.dumps(output, cls=MyEncoder)
 
 
 def findfiles(path, regex):
