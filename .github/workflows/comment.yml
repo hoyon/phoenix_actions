@@ -8,9 +8,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: comment PR
+      - name: linter
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           COMMIT_SHA: ${{ github.event.pull_request.head.sha }}
         run: |
-          ./.github/workflows/add_comment.sh
+          ./.github/workflows/run_linter.sh

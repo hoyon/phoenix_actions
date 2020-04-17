@@ -25,7 +25,7 @@ class MyEncoder(json.JSONEncoder):
 
 def make_json(conclusion, annotations):
     output = {
-        "name": "my linter",
+        "name": "linter",
         "head_sha": os.environ.get('COMMIT_SHA', 'your git sha'),
         "status": "completed",
         "conclusion": conclusion,
