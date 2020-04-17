@@ -2,7 +2,7 @@
 
 set -e
 
-echo "::add-matcher::./.github/workflows/linter-matcher.json"
+echo "::add-matcher::.github/workflows/linter-matcher.json"
 python ./.github/workflows/linter.py
 
 
