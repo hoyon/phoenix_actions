@@ -10,4 +10,5 @@ jobs:
 
       - name: Run linter
         run: |
-          ./.github/workflows/run_linter.sh
+          echo "::add-matcher::.github/workflows/linter-matcher.json"
+          python ./.github/workflows/linter.py
