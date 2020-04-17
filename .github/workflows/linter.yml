@@ -1,4 +1,4 @@
-name: comment
+name: linter
 on: pull_request
 jobs:
   example:
@@ -8,7 +8,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      - name: linter
+      - name: Run linter
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           COMMIT_SHA: ${{ github.event.pull_request.head.sha }}
